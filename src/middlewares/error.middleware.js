@@ -5,7 +5,7 @@ const errorHandler = (err, req, res, next) => {
 
   // Handle Zod input validation errors
   if (err instanceof ZodError) {
-    const errorDetails = err.errors.map((e) => ({
+    const errorDetails = err.issues.map((e) => ({
       field: e.path.join('.'),
       message: e.message,
     }));
